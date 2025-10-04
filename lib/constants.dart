@@ -3,9 +3,19 @@ import 'dart:ui' show Color;
 import 'package:pdf/pdf.dart';
 import 'package:resume/types.dart';
 
+// IMPORTANT: Replace this based on your workstation. Else, the save feature
+// will fail.
+const kSavePath = 'C:/Users/ferna/Downloads/fernan-buan-resume.pdf';
+
 // Customized branding.
 const seedColor = Color(0xFF022D65);
 const contrast = 1.0;
+final pageFormat = PdfPageFormat.a4.copyWith(
+  marginBottom: 0,
+  marginLeft: 0,
+  marginRight: 0,
+  marginTop: 0,
+);
 
 const white = PdfColor.fromInt(0xffffffff);
 
@@ -27,6 +37,7 @@ const educationRecords = <PersonalRecord>[
     subtitle: 'Bachelor of Science in Information Technology',
     title: 'Pambayang Dalubhasaan ng Marilao',
     trailing: 'Bulacan, PH',
+    onTapDestination: null,
   ),
   (
     details: null,
@@ -34,6 +45,7 @@ const educationRecords = <PersonalRecord>[
     subtitle: null,
     title: 'Jesus is Lord Colleges Foundation Inc.',
     trailing: 'Bulacan, PH',
+    onTapDestination: null,
   ),
   (
     details: null,
@@ -41,6 +53,7 @@ const educationRecords = <PersonalRecord>[
     subtitle: 'Graduated with Honors',
     title: 'Abangan Sur Elementary School',
     trailing: 'Bulacan, PH',
+    onTapDestination: null,
   ),
 ];
 
@@ -55,6 +68,7 @@ const experienceRecords = <PersonalRecord>[
     subtitle: 'MPH International',
     title: 'Compass Group at Microsoft',
     trailing: 'Software Engineer',
+    onTapDestination: null,
   ),
   (
     details:
@@ -66,6 +80,7 @@ const experienceRecords = <PersonalRecord>[
     subtitle: null,
     title: 'Hooli Software Inc.',
     trailing: 'Software Engineer',
+    onTapDestination: null,
   ),
   (
     details:
@@ -74,8 +89,9 @@ const experienceRecords = <PersonalRecord>[
         'aligned with company branding and technical requirements.',
     leading: 'Oct. 2019–Dec. 2020',
     subtitle: 'Autospeedygo Corporation',
-    title: 'Nissan PH',
+    title: 'Nissan PH (Luzon)',
     trailing: 'IT Administrator',
+    onTapDestination: null,
   ),
 ];
 
@@ -88,6 +104,7 @@ const aaRecords = <PersonalRecord>[
     subtitle: 'Hooli Software Inc.',
     title: 'Above and Beyond Award',
     trailing: '',
+    onTapDestination: null,
   ),
   (
     details: null,
@@ -95,13 +112,17 @@ const aaRecords = <PersonalRecord>[
     subtitle: 'Google Cloud Skills Boost',
     title: 'Google Cloud DevOps Certification',
     trailing: '',
+    onTapDestination: null,
   ),
   (
-    details: null,
+    details:
+        "Developed the game for just a week, we're able to won as "
+        "Second Runner Up",
     leading: 'Mar. 2019',
     subtitle: 'Game Development - Beat`Em Up',
     title: '6TH ALCU-REGION 3 GENERAL ASSEMBLY',
     trailing: '',
+    onTapDestination: null,
   ),
 ];
 
@@ -112,6 +133,7 @@ const skillRecords = <PersonalRecord>[
     subtitle: null,
     title: 'Languages',
     trailing: '',
+    onTapDestination: null,
   ),
   (
     details:
@@ -121,6 +143,7 @@ const skillRecords = <PersonalRecord>[
     subtitle: null,
     title: 'Programming',
     trailing: '',
+    onTapDestination: null,
   ),
   (
     details:
@@ -131,6 +154,7 @@ const skillRecords = <PersonalRecord>[
     subtitle: null,
     title: 'Integrations',
     trailing: '',
+    onTapDestination: null,
   ),
   (
     details: 'Adobe Photoshop, Adobe Illustrator, Figma, Rive',
@@ -138,6 +162,7 @@ const skillRecords = <PersonalRecord>[
     subtitle: null,
     title: 'Graphic Design',
     trailing: '',
+    onTapDestination: null,
   ),
 ];
 
@@ -150,5 +175,66 @@ const interestRecords = <PersonalRecord>[
     subtitle: null,
     title: '',
     trailing: '',
+    onTapDestination: null,
+  ),
+];
+
+const projectsRecords = <PersonalRecord>[
+  (
+    details:
+        'Developed within 3 weeks, this is a mobile app for helping my local '
+        'church members to share information, to improve communication, and '
+        'to provide documentations about the trainings conducted by the church.',
+    leading: 'Jan 2025–',
+    subtitle: '',
+    title: 'Church Training Week App',
+    trailing: 'Lead Software Engineer',
+    onTapDestination:
+        'https://play.google.com/store/apps/details?id=com.fpb_apps.loccf_training_week&hl=en_US',
+  ),
+  (
+    details:
+        'An open source Flutter package for showing a modal that contains '
+        'country dial code.',
+    leading: 'May 2022–',
+    subtitle: '',
+    title: 'Flutter Country Code Picker',
+    trailing: 'Project Owner',
+    onTapDestination: 'https://pub.dev/packages/fl_country_code_picker',
+  ),
+  (
+    details:
+        'Zentive is an all-in-one business management software that allows '
+        'field service business owners & field technicians to increase '
+        'operational efficiency and spend more time on revenue '
+        'generating tasks.',
+    leading: 'Feb. 2024–Aug. 2024',
+    subtitle: 'Hooli Software',
+    title: 'Zentive',
+    trailing: 'Software Engineer',
+    onTapDestination: 'https://zentive.io/',
+  ),
+  (
+    details:
+        'Kuponji is a mobile application tool that enables the Small-to-Medium '
+        'sized Businesses (SMBs) to create a quick, simple and easy coupon. '
+        'In line with this, it provides favorable coupon offers and deals to '
+        'the consumers.',
+    leading: 'Feb. 2022–Aug. 2023',
+    subtitle: 'Hooli Software',
+    title: 'Kuponji',
+    trailing: 'Lead Software Engineer',
+    onTapDestination: 'https://www.kuponji.com/',
+  ),
+  (
+    details:
+        'A unique, innovative and invaluable on-demand, real estate '
+        'agent-hailing / matching mobile app that home buyers or renters '
+        'can use to submit an onsite property tour request. ',
+    leading: 'May 2022–Jun. 2022',
+    subtitle: 'Hooli Software',
+    title: 'Ready Agent',
+    trailing: 'Software Engineer',
+    onTapDestination: 'https://www.readyagent.app/',
   ),
 ];

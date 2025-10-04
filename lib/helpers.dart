@@ -48,6 +48,11 @@ Future<Uint8List> generateResume({required PdfColor primary}) async {
                   ),
                   RecordSection(
                     primary: primary,
+                    title: 'Projects',
+                    records: projectsRecords,
+                  ),
+                  RecordSection(
+                    primary: primary,
                     title: 'Awards & Achievements',
                     records: aaRecords,
                   ),

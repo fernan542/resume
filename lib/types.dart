@@ -5,4 +5,5 @@ typedef PersonalRecord = ({
   String? subtitle,
   String? details,
   String leading,
+  String? onTapDestination,
 });

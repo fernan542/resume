@@ -55,6 +55,18 @@ class _RecordItem extends pw.StatelessWidget {
   pw.Widget build(pw.Context context) {
     final textTheme = pw.Theme.of(context);
 
+    // For making the title clickable if destination is not null.
+    final titleWidget = pw.Text(
+      record.title,
+      style: textTheme.bulletStyle.copyWith(
+        fontWeight: pw.FontWeight.bold,
+        fontSize: 11,
+        decoration: record.onTapDestination != null
+            ? pw.TextDecoration.underline
+            : null,
+      ),
+    );
+
     return pw.Container(
       padding: pw.EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       margin: pw.EdgeInsets.only(bottom: 8),
@@ -87,13 +99,13 @@ class _RecordItem extends pw.StatelessWidget {
                     crossAxisAlignment: pw.CrossAxisAlignment.start,
                     mainAxisSize: pw.MainAxisSize.max,
                     children: [
-                      pw.Text(
-                        record.title,
-                        style: textTheme.bulletStyle.copyWith(
-                          fontWeight: pw.FontWeight.bold,
-                          fontSize: 11,
+                      if (record.onTapDestination != null)
+                        pw.UrlLink(
+                          child: titleWidget,
+                          destination: record.onTapDestination!,
                         ),
-                      ),
+
+                      if (record.onTapDestination == null) titleWidget,
                       pw.Text(
                         record.trailing,
                         style: textTheme.bulletStyle.copyWith(

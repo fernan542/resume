@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:printing/printing.dart';
+import 'package:resume/constants.dart';
 import 'package:resume/extensions.dart';
 import 'package:resume/helpers.dart';
 
@@ -21,7 +22,7 @@ class HomePage extends StatelessWidget {
           final pdf = await generateResume(
             primary: context.colorScheme.primary.toPdfColor,
           );
-          final file = File("C:/Users/ferna/Downloads/zxczxc.pdf");
+          final file = File(kSavePath);
           await file.writeAsBytes(pdf);
         },
         tooltip: 'Download',
