@@ -16,3 +16,4 @@ Click here to [download](<https://raw.githubusercontent.com/fernan542/resume/mas
 
 <img src="https://raw.githubusercontent.com/fernan542/resume/master/examples/p1.jpg" width="200"/>
 <img src="https://raw.githubusercontent.com/fernan542/resume/master/examples/p2.jpg" width="200"/>
+<img src="https://raw.githubusercontent.com/fernan542/resume/master/examples/p3.jpg" width="200"/>
